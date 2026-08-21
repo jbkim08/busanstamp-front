@@ -1,25 +1,52 @@
 import { create } from "zustand";
 
+const ACCESS_TOKEN_KEY = "accessToken";
+
 export const useAuthStore = create((set) => ({
-  //전역으로 공유되는 변수
   user: null,
-  accessToken: localStorage.getItem("accessToken"),
-  //로그인 됫을때 유저와 토큰을 저장
+
+  accessToken: localStorage.getItem(ACCESS_TOKEN_KEY),
+
+  // 최초 인증 확인이 끝났는지 여부
+  isInitialized: false,
+
+  /**
+   * 로그인 성공 처리
+   */
   setAuth: ({ user, accessToken }) => {
-    localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
 
     set({
       user,
       accessToken,
     });
   },
-  //로그아웃 모두삭제
-  logout: () => {
-    localStorage.removeItem("accessToken");
+
+  /**
+   * 새로고침 후 사용자 정보 복원
+   */
+  setUser: (user) => {
+    set({ user });
+  },
+
+  /**
+   * 로그인 상태 초기화 => 로그아웃
+   */
+  clearAuth: () => {
+    localStorage.removeItem(ACCESS_TOKEN_KEY);
 
     set({
       user: null,
       accessToken: null,
+    });
+  },
+
+  /**
+   * 최초 인증 확인 완료
+   */
+  finishInitialization: () => {
+    set({
+      isInitialized: true,
     });
   },
 }));
