@@ -1,7 +1,7 @@
-import React from "react";
+import AppRouter from "./router/AppRouter";
 
 function App() {
-  return <div>시작</div>;
+  return <AppRouter />;
 }
 
 export default App;
