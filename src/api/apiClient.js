@@ -51,6 +51,13 @@ apiClient.interceptors.response.use(
       useAuthStore.getState().clearAuth(); //만료된 토큰 또는 정식토큰이 아닌경우
     }
 
+    console.log({
+      status: error.response?.status,
+      data: error.response?.data,
+      url: error.config?.url,
+      accessToken: useAuthStore.getState().accessToken,
+    });
+
     return Promise.reject(error);
   },
 );
