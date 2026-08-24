@@ -13,6 +13,7 @@ import PlaceListPage from "../pages/PlaceListPage";
 import SignupPage from "../pages/SignupPage";
 import AdminPlaceListPage from "../pages/admin/AdminPlaceListPage";
 import AdminPlaceFormPage from "../pages/admin/AdminPlaceFormPage";
+import KakaoSearchPage from "../pages/admin/KakaoSearchPage";
 
 function AppRouter() {
   return (
@@ -45,6 +46,9 @@ function AppRouter() {
           <Route path="places/new" element={<AdminPlaceFormPage />} />
 
           <Route path="places/:placeId/edit" element={<AdminPlaceFormPage />} />
+
+          {/* 카카오 검색 추가 */}
+          <Route path="kakao-search" element={<KakaoSearchPage />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
