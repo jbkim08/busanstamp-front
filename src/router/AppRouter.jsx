@@ -4,7 +4,6 @@ import AdminRoute from "../components/auth/AdminRoute";
 import ProtectedRoute from "../components/auth/ProtectedRoute";
 import MainLayout from "../components/layout/MainLayout";
 
-import AdminHomePage from "../pages/AdminHomePage";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import MyPage from "../pages/MyPage";
