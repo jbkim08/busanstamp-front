@@ -59,10 +59,10 @@ function Header() {
               </NavLink>
 
               {user.role === "ADMIN" && (
-                <NavLink to="/admin" className={getLinkClassName}>
+                <NavLink to="/admin/places" className={getLinkClassName}>
                   <span className="flex items-center gap-1">
                     <Settings size={16} />
-                    관리자
+                    장소관리
                   </span>
                 </NavLink>
               )}
