@@ -1,11 +1,7 @@
 import { useState } from "react";
-
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
 import { Search, SearchX } from "lucide-react";
-
 import { useNavigate } from "react-router";
-
 import { importKakaoPlace, searchKakaoPlaces } from "../../api/kakaoApi";
 
 import AdminPageHeader from "../../components/admin/AdminPageHeader";
