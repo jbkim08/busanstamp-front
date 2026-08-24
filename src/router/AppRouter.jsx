@@ -12,6 +12,8 @@ import NotFoundPage from "../pages/NotFoundPage";
 import PlaceDetailPage from "../pages/PlaceDetailPage";
 import PlaceListPage from "../pages/PlaceListPage";
 import SignupPage from "../pages/SignupPage";
+import AdminPlaceListPage from "../pages/admin/AdminPlaceListPage";
+import AdminPlaceFormPage from "../pages/admin/AdminPlaceFormPage";
 
 function AppRouter() {
   return (
@@ -36,8 +38,14 @@ function AppRouter() {
         </Route>
 
         {/* 관리자 전용 */}
-        <Route element={<AdminRoute />}>
-          <Route path="admin" element={<AdminHomePage />} />
+        <Route path="admin" element={<AdminRoute />}>
+          <Route index element={<Navigate to="places" replace />} />
+
+          <Route path="places" element={<AdminPlaceListPage />} />
+
+          <Route path="places/new" element={<AdminPlaceFormPage />} />
+
+          <Route path="places/:placeId/edit" element={<AdminPlaceFormPage />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
