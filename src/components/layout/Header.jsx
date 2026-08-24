@@ -49,6 +49,10 @@ function Header() {
             관광 장소
           </NavLink>
 
+          <NavLink to="/map" className={getLinkClassName}>
+            관광 지도
+          </NavLink>
+
           {user ? (
             <>
               <NavLink to="/mypage" className={getLinkClassName}>
