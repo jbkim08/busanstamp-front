@@ -2,7 +2,9 @@ import { MapPin, Navigation } from "lucide-react";
 
 import { Link } from "react-router";
 
-function MapPlaceCard({ place, selected, onClick }) {
+import { formatDistance } from "../../utils/distance";
+
+function MapPlaceCard({ place, selected, distance, onClick }) {
   return (
     <article
       onClick={() => onClick(place)}
@@ -26,16 +28,24 @@ function MapPlaceCard({ place, selected, onClick }) {
       )}
 
       <div className="p-4">
-        <span className="text-xs font-semibold text-blue-600">
-          {place.category}
-        </span>
+        <div className="flex items-center justify-between gap-3">
+          <span className="text-xs font-semibold text-blue-600">
+            {place.category}
+          </span>
 
-        <h2 className="mt-1 font-bold text-slate-900">{place.name}</h2>
+          {distance !== null && distance !== undefined && (
+            <span className="rounded-full bg-green-50 px-3 py-1 text-xs font-bold text-green-700">
+              {formatDistance(distance)}
+            </span>
+          )}
+        </div>
+
+        <h2 className="mt-2 font-bold text-slate-900">{place.name}</h2>
 
         <p className="mt-2 flex items-start gap-2 text-sm text-slate-500">
           <MapPin size={16} className="mt-0.5 shrink-0" />
 
-          <span>{place.address}</span>
+          {place.address}
         </p>
 
         <div className="mt-4 flex items-center justify-between">
@@ -43,6 +53,7 @@ function MapPlaceCard({ place, selected, onClick }) {
             type="button"
             onClick={(event) => {
               event.stopPropagation();
+
               onClick(place);
             }}
             className="flex items-center gap-1 text-sm font-semibold text-slate-500 hover:text-blue-600"
