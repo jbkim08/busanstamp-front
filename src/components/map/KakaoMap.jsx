@@ -110,7 +110,28 @@ const KakaoMap = forwardRef(function KakaoMap(
         clickable: true,
       });
 
+      //InfoWindow 컨텐트 생성
+      const infoContent = document.createElement("div");
+      infoContent.style.padding = "10px 12px";
+      infoContent.style.minWidth = "150px";
+      const title = document.createElement("strong");
+      title.textContent = place.name;
+      const address = document.createElement("div");
+      address.textContent = place.address;
+      address.style.marginTop = "5px";
+      address.style.fontSize = "12px";
+      address.style.color = "#64748b";
+      infoContent.appendChild(title);
+      infoContent.appendChild(address);
+      //카카오맵의 객체로 생성
+      const infoWindow = new kakao.maps.InfoWindow({
+        content: infoContent,
+        removable: true,
+      });
+
+      //클릭 이벤트시 인포컨텐츠도 나옴
       kakao.maps.event.addListener(marker, "click", () => {
+        infoWindow.open(map, marker); // 추가
         onSelectPlace(place);
       });
 
