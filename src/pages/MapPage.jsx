@@ -99,7 +99,7 @@ function MapPage() {
 
       mapRef.current?.moveToLocation(currentLocation);
     } catch {
-      PageMessage({ locationError });
+      return <PageMessage message={locationError} />;
     }
   };
 
