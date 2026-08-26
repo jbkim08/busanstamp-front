@@ -1,11 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-
 import { Award, CheckCircle2, LockKeyhole, MapPin, Stamp } from "lucide-react";
-
 import { Link } from "react-router";
-
 import { getMyStampBook } from "../api/checkinApi";
-
 import { getApiErrorMessage } from "../utils/getApiErrorMessage";
 
 function StampBookPage() {
