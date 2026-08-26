@@ -43,12 +43,33 @@ function CheckinPage() {
             관광지 방문 체크인이 완료되었습니다.
           </p>
 
-          <Link
-            to="/map"
-            className="mt-7 inline-block rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white"
-          >
-            관광 지도로 돌아가기
-          </Link>
+          <div className="mt-7 flex justify-center gap-3">
+            <Link
+              to="/stamps"
+              className="
+                rounded-xl
+                bg-amber-500
+                px-6 py-3
+                font-semibold
+                text-white
+              "
+            >
+              내 스탬프 보기
+            </Link>
+
+            <Link
+              to="/map"
+              className="
+                rounded-xl
+                bg-blue-600
+                px-6 py-3
+                font-semibold
+                text-white
+              "
+            >
+              다음 장소 찾기
+            </Link>
+          </div>
         </div>
       </section>
     );
