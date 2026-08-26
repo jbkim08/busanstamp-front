@@ -25,16 +25,11 @@ function AppRouter() {
       <Route element={<MainLayout />}>
         {/* 공개 페이지 */}
         <Route index element={<HomePage />} />
-
         <Route path="login" element={<LoginPage />} />
-
         <Route path="signup" element={<SignupPage />} />
-
         <Route path="map" element={<MapPage />} />
-
         <Route path="places">
           <Route index element={<PlaceListPage />} />
-
           <Route path=":placeId" element={<PlaceDetailPage />} />
         </Route>
 
@@ -48,19 +43,14 @@ function AppRouter() {
         {/* 관리자 전용 */}
         <Route path="admin" element={<AdminRoute />}>
           <Route index element={<Navigate to="places" replace />} />
-
           <Route path="places" element={<AdminPlaceListPage />} />
-
           <Route path="places/new" element={<AdminPlaceFormPage />} />
-
           <Route path="places/:placeId/edit" element={<AdminPlaceFormPage />} />
-
           <Route path="places/:placeId/qr" element={<AdminPlaceQrPage />} />
-
           {/* 카카오 검색 추가 */}
           <Route path="kakao-search" element={<KakaoSearchPage />} />
         </Route>
-
+        {/* 그외 모든 잘못된 주소 */}
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
