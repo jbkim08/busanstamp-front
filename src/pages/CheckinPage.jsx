@@ -1,10 +1,11 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { CheckCircle2, QrCode, TriangleAlert } from "lucide-react";
 import { Link, useSearchParams } from "react-router";
 import { checkin } from "../api/checkinApi";
 import { getApiErrorMessage } from "../utils/getApiErrorMessage";
 
 function CheckinPage() {
+  const queryClient = useQueryClient(); //쿼리클라이언트 객체
   //url 쿼리 스트링 저장
   const [searchParams] = useSearchParams();
   //토큰 저장
@@ -12,6 +13,12 @@ function CheckinPage() {
   //벡엔드에 체크인 요청
   const checkinMutation = useMutation({
     mutationFn: () => checkin(token),
+
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
+        queryKey: ["myStampBook"],
+      });
+    },
   });
 
   if (!token) {
