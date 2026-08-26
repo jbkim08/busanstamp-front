@@ -55,6 +55,16 @@ function Header() {
 
           {user ? (
             <>
+              <NavLink to="/stamps" className={getLinkClassName}>
+                <span
+                  className="
+                    flex items-center gap-1
+                  "
+                >
+                  <Stamp size={16} />내 스탬프
+                </span>
+              </NavLink>
+
               <NavLink to="/mypage" className={getLinkClassName}>
                 <span className="flex items-center gap-1">
                   <UserRound size={16} />
