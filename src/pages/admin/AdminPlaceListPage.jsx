@@ -240,7 +240,7 @@ function SearchForm({ searchForm, onChange, onSubmit, onReset }) {
 
 function AdminPlaceRow({ place, isDeleting, onDelete }) {
   return (
-    <article className="grid gap-4 px-5 py-5 md:grid-cols-[90px_1fr_160px_160px] md:items-center">
+    <article className="grid gap-4 px-5 py-5 md:grid-cols-[90px_1fr_120px_220px] md:items-center">
       <div className="text-sm font-semibold text-slate-400">
         #{place.placeId}
       </div>
