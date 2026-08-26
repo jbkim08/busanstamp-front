@@ -1,4 +1,4 @@
-import { LogOut, MapPinned, Settings, UserRound } from "lucide-react";
+import { LogOut, MapPinned, Settings, Stamp, UserRound } from "lucide-react";
 
 import { NavLink, useNavigate } from "react-router";
 
