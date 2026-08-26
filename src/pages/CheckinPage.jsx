@@ -106,4 +106,3 @@ function CheckinError({ message }) {
 }
 
 export default CheckinPage;
-s;
