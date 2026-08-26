@@ -16,6 +16,7 @@ import AdminPlaceFormPage from "../pages/admin/AdminPlaceFormPage";
 import KakaoSearchPage from "../pages/admin/KakaoSearchPage";
 import MapPage from "../pages/MapPage";
 import AdminPlaceQrPage from "../pages/admin/AdminPlaceQrPage";
+import CheckinPage from "../pages/CheckinPage";
 
 function AppRouter() {
   return (
