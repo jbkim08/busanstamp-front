@@ -8,3 +8,12 @@ export async function checkin(token) {
 
   return response.data;
 }
+
+/**
+ * 내 스탬프북
+ */
+export async function getMyStampBook() {
+  const response = await apiClient.get("/checkins/me");
+
+  return response.data;
+}
