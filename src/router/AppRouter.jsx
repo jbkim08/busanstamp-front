@@ -39,6 +39,7 @@ function AppRouter() {
         {/* 로그인 사용자 전용 */}
         <Route element={<ProtectedRoute />}>
           <Route path="mypage" element={<MyPage />} />
+          <Route path="checkin" element={<CheckinPage />} />
         </Route>
 
         {/* 관리자 전용 */}
