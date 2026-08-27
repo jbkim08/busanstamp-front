@@ -14,7 +14,7 @@ export default defineConfig({
     // React의 /api 요청을 Spring Boot로 전달
     proxy: {
       "/api": {
-        target: "http://localhost:8080",
+        target: "https://busanstamp-nzf9.onrender.com",
         changeOrigin: true,
       },
     },
